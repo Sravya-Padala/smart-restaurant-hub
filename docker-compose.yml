@@ -1,0 +1,43 @@
+# This defines the "containers" to be built and run
+services:
+
+  # The Backend Service
+  backend:
+    build: 
+      context: ./server
+    container_name: smart-restaurant-backend
+    restart: always
+    environment:
+      # Pass ALL your server-side .env variables here
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_KEY=${SUPABASE_KEY}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY}
+      - RESEND_API_KEY=${RESEND_API_KEY}
+    networks:
+      - restaurant-network
+
+  # The Frontend Service
+  frontend:
+    build:
+      context: ./client
+      args:
+        # Pass ALL your client-side VITE_ variables here
+        - VITE_SUPABASE_URL=${VITE_SUPABASE_URL}
+        - VITE_SUPABASE_ANON_KEY=${VITE_SUPABASE_ANON_KEY}
+        - VITE_STRIPE_PUBLISHABLE_KEY=${VITE_STRIPE_PUBLISHABLE_KEY}
+        - VITE_API_BASE_URL=${VITE_API_BASE_URL}
+    container_name: smart-restaurant-frontend
+    restart: always
+    ports:
+      - "80:80" # Map the server's port 80 to the container's port 80
+    depends_on:
+      - backend # Wait for the backend to start first
+    networks:
+      - restaurant-network
+
+# This creates a private network for the containers to talk
+networks:
+  restaurant-network:
+    driver: bridge
+
