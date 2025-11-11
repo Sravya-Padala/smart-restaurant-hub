@@ -38,9 +38,16 @@ jobs:
         env:
           ECR_REGISTRY: ${{ secrets.ECR_REGISTRY }}
           IMAGE_TAG: latest
-        run: |
-            docker buildx build -t $ECR_REGISTRY/smart-restaurant-frontend:$IMAGE_TAG -f client/Dockerfile --build-arg VITE_SUPABASE_URL=${{ secrets.VITE_SUPABASE_URL }} --build-arg VITE_SUPABASE_ANON_KEY=${{ secrets.VITE_SUPABASE_ANON_KEY }} --build-arg VITE_STRIPE_PUBLISHABLE_KEY=${{ secrets.VITE_STRIPE_PUBLISHABLE_KEY }} --build-arg VITE_API_BASE_URL=${{ secrets.VITE_API_BASE_URL }} --push ./client
-
+        run:  >-
+          docker buildx build
+          -t $ECR_REGISTRY/smart-restaurant-frontend:$IMAGE_TAG
+          -f client/Dockerfile
+          --build-arg VITE_SUPABASE_URL=${{ secrets.VITE_SUPABASE_URL }}
+          --build-arg VITE_SUPABASE_ANON_KEY=${{ secrets.VITE_SUPABASE_ANON_KEY }}
+          --build-arg VITE_STRIPE_PUBLISHABLE_KEY=${{ secrets.VITE_STRIPE_PUBLISHABLE_KEY }}
+          --build-arg VITE_API_BASE_URL=${{ secrets.VITE_API_BASE_URL }}
+          --push
+          ./client
   # JOB 2: Deploy to EC2 Instance
   deploy:
     name: Deploy to EC2
