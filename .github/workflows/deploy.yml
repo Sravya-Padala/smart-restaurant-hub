@@ -39,14 +39,14 @@ jobs:
           ECR_REGISTRY: ${{ secrets.ECR_REGISTRY }}
           IMAGE_TAG: latest
         run: |
-          docker buildx build \
-            -f client/Dockerfile \
+          docker build \
+            -f client/Dockerfile ./client \
             -t $ECR_REGISTRY/smart-restaurant-frontend:$IMAGE_TAG \
             --build-arg VITE_SUPABASE_URL=${{ secrets.VITE_SUPABASE_URL }} \
             --build-arg VITE_SUPABASE_ANON_KEY=${{ secrets.VITE_SUPABASE_ANON_KEY }} \
             --build-arg VITE_STRIPE_PUBLISHABLE_KEY=${{ secrets.VITE_STRIPE_PUBLISHABLE_KEY }} \
             --build-arg VITE_API_BASE_URL=${{ secrets.VITE_API_BASE_URL }} \
-            ./client
+         
 
           docker push $ECR_REGISTRY/smart-restaurant-frontend:$IMAGE_TAG
 
