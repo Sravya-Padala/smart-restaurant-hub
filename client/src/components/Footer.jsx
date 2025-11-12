@@ -11,7 +11,7 @@ export default function Footer() {
       
       {/* --- Section 1: Main Footer Content with Background Image --- */}
       <div 
-        className="relative text-gray-300 py-6 px-4" // REDUCED HEIGHT: py-16 is now py-12
+        className="relative text-gray-300 py-3 px-4" // REDUCED HEIGHT: py-16 is now py-12
         style={{ backgroundImage: `url(${footerBackgroundImage})` }}
       >
         {/* Dark overlay to ensure text is readable */}
