@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { FaShoppingCart, FaHeart, FaClipboardList, FaSignOutAlt, FaTimes } from 'react-icons/fa';
+// 1. Import the icon for the contact page
+import { FaShoppingCart, FaHeart, FaClipboardList, FaSignOutAlt, FaTimes, FaInfoCircle, FaEnvelope } from 'react-icons/fa';
 
 export default function Sidebar({ isOpen, onClose, user, onLogout, totalCartItems }) {
   return (
@@ -31,7 +32,7 @@ export default function Sidebar({ isOpen, onClose, user, onLogout, totalCartItem
           </button>
         </div>
 
-        {/* Navigation Links (now clickable) */}
+        {/* Navigation Links */}
         <nav className="p-4">
           <ul className="space-y-2">
             <li>
@@ -57,10 +58,23 @@ export default function Sidebar({ isOpen, onClose, user, onLogout, totalCartItem
                 <span>Favorites</span>
               </Link>
             </li>
+            <li>
+              <Link to="/about" className="flex items-center gap-4 p-3 rounded-lg text-gray-300 hover:bg-gray-700 hover:text-white transition-colors">
+                <FaInfoCircle size={18} /> 
+                <span>About Us</span>
+              </Link>
+            </li>
+            {/* 2. Added the new "Contact" link here */}
+            <li>
+              <Link to="/contact" className="flex items-center gap-4 p-3 rounded-lg text-gray-300 hover:bg-gray-700 hover:text-white transition-colors">
+                <FaEnvelope size={18} />
+                <span>Contact</span>
+              </Link>
+            </li>
           </ul>
         </nav>
 
-        {/* Logout Button (now clickable) */}
+        {/* Logout Button */}
         {user && (
           <div className="absolute bottom-0 left-0 w-full p-4 border-t border-gray-700">
             <button 

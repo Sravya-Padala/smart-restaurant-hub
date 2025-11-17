@@ -10,9 +10,9 @@ export default function FavoritesPage() {
     return (
       // --- SOLUTION WRAPPER (for empty state) ---
       // Added full-screen, dark, and centering classes
-      <div className="w-screen min-h-screen bg-gray-900 text-white flex items-center justify-center p-4">
+      <div className="w-screen min-h-[calc(100vh-10rem)]  bg-gray-900 text-white flex items-center justify-center p-4">
         <div className="text-center">
-          <h1 className="text-3xl font-bold">You have no favorite items yet!</h1>
+          <h1 className="!text-xl font-bold">You have no favorite items yet!</h1>
           <p className="mt-2 text-gray-400">Click the heart on any menu item to save it here.</p>
           {/* --- TWEAK: Matched button to your app's theme --- */}
           <Link

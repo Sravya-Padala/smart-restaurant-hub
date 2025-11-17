@@ -32,7 +32,8 @@ function MenuItemCard({ item }) {
           {/* Favorite Icon (left) */}
           <button 
             onClick={() => toggleFavorite(item)} 
-            className="text-red-500 p-2 rounded-full hover:bg-gray-700 transition-colors"
+            className="text-red-500 p-2 rounded-full transition-colors !bg-transparent !focus:outline-none !focus:ring-0 "
+            style={{ outline: 'none', boxShadow: 'none' }}
           >
             {isFavorite(item.id) ? <FaHeart size={20} /> : <FaRegHeart size={20} />}
           </button>

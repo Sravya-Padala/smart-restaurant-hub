@@ -17,9 +17,9 @@ export default function CartPage() {
       // --- SOLUTION WRAPPER (for empty cart) ---
       // Added min-h-screen, bg-gray-900, text-white to match MenuPage
       // Added flex utils to center the content vertically and horizontally
-      <div className="w-screen min-h-screen bg-gray-900 text-white flex items-center justify-center p-4">
+      <div className="w-screen min-h-[calc(100vh-10rem)] bg-gray-900 text-white flex items-center justify-center p-4">
         <div className="text-center">
-          <h1 className="text-3xl font-bold mb-4">Your Cart is Empty</h1>
+          <h1 className="!text-xl font-bold mb-4">Your Cart is Empty</h1>
           {/* --- TWEAK: Matched button style to your app's theme --- */}
           <Link
             to="/menu"

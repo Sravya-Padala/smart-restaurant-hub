@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 import { submitReservation } from '../services/api';
 
 // The biryani image you requested for the background
@@ -46,7 +47,7 @@ export default function ReservationPage() {
 
   return (
     // This is the main full-screen container that centers its content
-    <div className="relative w-screen h-screen flex items-center justify-center p-4">
+    <div className="relative w-full min-h-full flex items-center justify-center p-4">
       
       {/* 1. Background Image Layer */}
       {/* This div fills the entire screen and displays the blurred image */}
