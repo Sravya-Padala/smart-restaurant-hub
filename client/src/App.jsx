@@ -9,6 +9,7 @@ import ChatWidget from './components/ChatWidget';
 import Sidebar from './components/Sidebar';
 import BottomNav from './components/BottomNav';
 import './index.css';
+import ScrollToTop from './components/ScrollToTop'; 
 
 function App() {
   const { user, logOut } = useAuth();
@@ -235,6 +236,8 @@ function App() {
         onLogout={handleLogout}
         totalCartItems={totalCartItems}
       />
+
+      <ScrollToTop />
 
       <main className="flex-grow w-full">
         <Outlet context={{ selectedCategory }} />
