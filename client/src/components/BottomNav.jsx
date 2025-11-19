@@ -20,7 +20,7 @@ export default function BottomNav() {
           <FaUtensils size={20} />
           <span className="text-xs mt-1">Menu</span>
         </NavLink>
-        <NavLink to="/cart" className={getNavLinkClass}>
+        <NavLink to="/order" className={getNavLinkClass}>
           <FaClipboardList size={20} />
           <span className="text-xs mt-1">Order</span>
         </NavLink>

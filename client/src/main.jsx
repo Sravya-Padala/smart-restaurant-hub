@@ -21,7 +21,8 @@ import FavoritesPage from './pages/FavoritesPage.jsx';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import CheckoutPage from './pages/CheckoutPage';
-import OrderConfirmationPage from './pages/OrderConfirmationPage';
+import OrderConfirmationPage from './pages/OrderConfirmationPage.jsx';
+import OrderPage from './pages/OrderPage.jsx';
 
 // --- Load Stripe ---
 // Use the key from your environment variables
@@ -46,7 +47,7 @@ const router = createBrowserRouter([
       { path: "/favorites", element: <FavoritesPage /> },
       { path: "/checkout", element: <CheckoutPage /> },
       { path: "/order-confirmation", element: <OrderConfirmationPage /> },
-      
+      { path: "/order", element: <OrderPage /> },
     ],
   },
 ]);
